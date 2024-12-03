@@ -6,7 +6,7 @@ COLOR_FONDO = (0, 0, 20)
 # define tamaño de personaje
 ANCHO_PERSONAJE = 20
 ALTO_PERSONAJE = 20
-COLOR_PERSONAJE= (255, 100, 100)
+# COLOR_PERSONAJE= (255, 100, 100)esto le daba color al cuadrado
 
 # establesco movimientos
 FPS = 60

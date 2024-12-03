@@ -6,11 +6,16 @@ from personaje import Personaje
 pygame.init()#inicio pygame
 
 ventana = pygame.display.set_mode((constantes.ANCHO_VENTANA, constantes.ALTO_VENTANA))#establece tamaño de la ventana
-jugador_imagen = pygame.image.load("recursos/img/jugador/run1.png")
-jugador = Personaje(100,500, jugador_imagen)#donde aprece el personaje inicialmente
+
 
 pygame.display.set_caption("Mi primer juego")
 
+animaciones = []
+for i in range(4):
+    jugador_imagen = pygame.image.load(f"recursos/img/jugador/run{i}.png")
+    animaciones.append(jugador_imagen)
+
+jugador = Personaje(100,500, animaciones)#donde aprece el personaje inicialmente
 # variables de movimiento del juego
 mover_arriba = False
 mover_abajo = False
@@ -36,6 +41,8 @@ while corriendo:
         eje_y = constantes.VELOCIDAD
 
     jugador.movimiento(eje_x, eje_y)#mover al personaje
+    
+    jugador.update()
 
     reloj.tick(constantes.FPS) #defino cuadros por segundo
     jugador.dibujar(ventana) #dibuja el personaje
